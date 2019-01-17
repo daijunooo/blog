@@ -28,7 +28,7 @@ $params = file_get_contents('php://input');
 "extEnable": true,
 "extAppid": "wx775a25089efc6de3", //此处填的appid应该是授权给此第三方平台的小程序
 "directCommit": false,
-"ext": { //ext 所有信息一般都是和extAppid对应小程序的信息，所以这里面如果有appid一般会和extAppid相同
+"ext": { // ext中所有信息一般都是和extAppid对应小程序的信息，所以这里面如果有appid一般会和extAppid相同
   "uid": "17165",
     "appid":"wx775a25089efc6de3"
   },
