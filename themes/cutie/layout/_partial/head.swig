@@ -37,9 +37,9 @@
  <!-- CSS
   {{ css(['css/normalize.css', 'css/font-awesome.min.css', 'css/gridlex.min.css', 'css/skeleton.css', 'css/theme.css', 'css/share.min.css', 'css/lightgallery.css']) }}
    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  {{ css(['css/skeleton.css', 'css/theme.css']) }}
 
     <link href="https://cdn.bootcss.com/normalize/3.0.2/normalize.min.css" rel="stylesheet">
+    {{ css(['css/skeleton.css', 'css/theme.css']) }}
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/gridlex/2.3.7/gridlex.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/lightgallery/1.6.8/css/lightgallery.min.css" rel="stylesheet">
