@@ -39,11 +39,11 @@
    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <link href="https://cdn.bootcss.com/normalize/3.0.2/normalize.min.css" rel="stylesheet">
-    {{ css(['css/skeleton.css', 'css/theme.css']) }}
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/gridlex/2.3.7/gridlex.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/lightgallery/1.6.8/css/lightgallery.min.css" rel="stylesheet">
+    {{ css(['css/skeleton.css', 'css/theme.css']) }}
     <link href="https://cdn.bootcss.com/social-share.js/1.0.11/css/share.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/lightgallery/1.6.8/css/lightgallery.min.css" rel="stylesheet">
 
   <script src="https://cdn.bootcss.com/js-cookie/2.2.0/js.cookie.min.js"></script>
   <script src="https://cdn.bootcss.com/social-share.js/1.0.11/js/social-share.min.js"></script>
