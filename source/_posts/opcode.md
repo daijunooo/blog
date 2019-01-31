@@ -6,7 +6,10 @@ tag: php
 ---
 
 # 项目优化的时机
-- 公司的项目日趋稳定了，新需求也越来越少，这时候有大把时间研究新东西和优化项目。前期为了赶进度写了一些流水账式的代码，现在都可以花时间重构了。我用了一两天时间优化了调用频繁的api，当大部分优化都做的差不多的时候，接口效率确实大有提升。开始考虑怎么样再继续优化。这时我接触了Golang，框架都搭好了，准备用Go语言写rpc服务，由于目前这个项目的用户量和数据量还不是很多，用Go好像看不出提升的效果，在做了一些测试后也证明了我的想法。后来想到了OPcache，就用到了项目中，接口效率又提升了不少。接口响应时间降到了100ms以下,相比之前提升了30%左右。在并发的情况下大部分接口的响应时间都在200ms以下。
+- 公司的项目日趋稳定了，新需求也越来越少，这时候有大把时间研究新东西和优化项目。前期为了赶进度写了一些流水账式的代码，现在都可以花时间重构了。
+- 我用了一两天时间优化了调用频繁的api，当大部分优化都做的差不多的时候，接口效率确实大有提升。开始考虑怎么样再继续优化。
+- 这时我接触了Golang，框架都搭好了，准备用Go语言写rpc服务，由于目前这个项目的用户量和数据量还不是很多，用Go好像看不出提升的效果，在做了一些测试后也证明了我的想法。
+- 后来想到了OPcache，就用到了项目中，接口效率又提升了不少。接口响应时间降到了100ms以下,相比之前提升了30%左右。在并发的情况下大部分接口的响应时间都在200ms以下。
 
 # 小故事
 
@@ -21,12 +24,14 @@ tag: php
 > PHP5.5.0以后版本自带Opcache加速器，但默认情况下木有启用。所以编译的使用我们想要启用该PHP加速器就应该添加参数 ： –enable-opcache 来制定。
 
 - 查找php自带包的位置，使用下面的命令
+
 ``` php
 [root]# find / -name opcache
 /usr/local/php-5.6/extcode/opcache
 ```
 
 - 查找phpize的位置
+
 ``` php
 [root]# find / -name phpize
 /usr/local/php-5.6/bin/phpize
@@ -34,11 +39,13 @@ tag: php
 ```
 
 - 切换到opcache包的目录
+
 ``` php
 [root]# cd /usr/local/php-5.6/extcode/opcache
 ```
 
 - 然后在包的目录，执行phpize
+
 ``` php
 [root opcache]# /usr/local/php-5.6/bin/phpize
 Configuring for:
@@ -48,11 +55,13 @@ Zend Extension Api No:   220090626
 ```
 
 - 不要切换目录，继续在当前目录下执行下面的configure
+
 ``` php
 ./configure --with-php-config=/usr/local/php-5.6/bin/php-config
 ```
 
 - 还是在这个目录，继续编译文件
+
 
 ``` php
 make && make install
@@ -67,11 +76,13 @@ Installing shared extensions:     /usr/local/php-5.6/lib/php/extensions/no-debug
 - 最后它会告诉你opcache.so已经编译成功，就放在/usr/local/php-5.6/lib/php/extensions/no-debug-non-zts-20131226/这个目录里。
 - 用vi打开php.ini，编写opcache的配置参数。如果你不知道你的php.ini在哪里，可以用phpinfo.php来查看
 
+
 ``` php
 vi /home/wwwroot/etc/php.ini
 ```
 
 - 将下面的代码放置在php.ini的最后面，保存后退出
+
 ``` php
 [opcache]
 zend_extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226/opcache.so"
@@ -86,6 +97,7 @@ opcache.fast_shutdown=1
 
 - 重启apache
 
+
 ``` php
 service httpd restart
 ```
@@ -98,6 +110,7 @@ service httpd restart
 # 注意事项
 - 开启OPcache后，服务器上的代码更新后不是即刻生效的，这对于我们版本迭代是不方便的。
 - 为了解决上面的不方便我找到了一个好的解决方案，写一个专门的接口，调用一次 opcache_reset(),这样OPcache就会被重置，新代码就会生效。
+
 
 ``` php
 public function refreshCode()
