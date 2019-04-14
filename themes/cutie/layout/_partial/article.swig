@@ -83,7 +83,7 @@
     {% if comment %}
         <div id="comment"></div>
         <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script src='//unpkg.com/valine@1.3.6/dist/Valine.min.js'></script>
         <script>
         new Valine({
             el: '#comment' ,
