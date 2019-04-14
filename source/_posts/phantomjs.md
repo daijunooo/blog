@@ -79,7 +79,7 @@ echo base64_decode($img);
 ### 注意事项
 - phantomJs最高并发10，超过了需要搭建多个服务，截图时cpu和内存占用可能较高，并且可能出现内存泄露，需要有这方面的考虑并设计应对方案
 - page.settings.javascriptEnabled = false，关闭了js文件解析会大大减少内存使用，同时html中如果有js将不会解析执行，所以动态替换html只能交给后端处理，不能使用js
-- page.close()这行代码一定要有，负责一定会出现内存泄露的情况
+- page.close()这行代码一定要有，否则一定会出现内存泄露的情况
 
 ### 欣赏一下phantomjs截的两张网页
 1. 百度图片
