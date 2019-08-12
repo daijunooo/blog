@@ -14,7 +14,7 @@ tag: java
 | 默认值 | 0 | 0 | 0 | 0L | 0f | 0.0d | false | 'u0000' |
 
 > 所有引用类型的默认值都是 null
-> 在 Java 中使用 final 关键字来修饰常量，声明方式和变量类似
+> 在 Java 中使用 final 关键字来修饰常量，声明方式和变量类似,如：final String LOVE = 'java'
 
 ### 变量类型
 ``` php
@@ -35,7 +35,6 @@ public class Var {
 ```
 
 - 类变量被声明为public static final类型时，类变量名称一般建议使用大写字母
-- 常量是一种特殊的变量，它的值被设定后，在程序运行过程中不允许改变，一般用大写字符,语法：final 常量名 = 值;如：final String LOVE = 'java';
 
 ### 修饰符
 1. 访问控制修饰符
