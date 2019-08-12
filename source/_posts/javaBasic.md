@@ -7,7 +7,8 @@ tag: java
 
 ### 基本数据类型
 - Java 的两大数据类型: 内置数据类型，引用数据类型
- | 类型 | byte | short | int | long | float | double | boolen | char |
+
+| 类型 | byte | short | int | long | float | double | boolen | char |
 |:---:|:---:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | 内存占用 | 1字节 | 2字节 | 4字节 | 8字节 | 4字节 | 8字节 | 1字节 | 2字节 |
 | 默认值 | 0 | 0 | 0 | 0L | 0f | 0.0d | false | 'u0000' |
