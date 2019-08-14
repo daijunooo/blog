@@ -70,7 +70,7 @@ b[1] = "学习";
 - 所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number 的子类
 - Character 类用于对单个字符进行操作。
 - 在 Java 中字符串属于对象，Java 提供了 String 类来创建和操作字符串。
-- 当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。
+- 当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder（线程不安全） 类。
 
 ### 日期时间
 - java.util 包提供了 Date 类来封装当前的日期和时间。 Date 类提供两个构造函数来实例化 Date 对象。
