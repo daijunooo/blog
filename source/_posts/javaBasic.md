@@ -75,3 +75,16 @@ b[1] = "学习";
 ### 日期时间
 - java.util 包提供了 Date 类来封装当前的日期和时间。 Date 类提供两个构造函数来实例化 Date 对象。
 - SimpleDateFormat 是一个以语言环境敏感的方式来格式化和分析日期的类。SimpleDateFormat 允许你选择任何用户自定义日期时间格式来运行
+
+### Java 流(Stream)、文件(File)和IO
+- Java.io 包几乎包含了所有操作输入、输出需要的类
+
+``` php
+// 从控制台读取字符串
+BufferedReader i = new BufferedReader(new InputStreamReader(System.in));
+String c;
+do {
+    c = i.readLine();
+    System.out.println("输入：" + c);
+} while (!c.equals("end"));
+```
