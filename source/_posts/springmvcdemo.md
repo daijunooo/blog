@@ -9,13 +9,14 @@ tag: java
 
 ### 原理
 - 解析代码中的注解，利用反射技术处理不同注解，完成Ioc初始化和注入，继承servlet处理请求和响应数据。
+
 > Ioc容器是核心，可以理解为一个HashMap里面保存了所有类的实例，可以根据Key随时拿到我们要的对象。
 
 ### Ioc容器是什么样
 ``` php
 Map<String, Object> ioc = new HashMap<>();
 ```
-> 不要想复杂了，这就是个Ioc容器
+- 不要想复杂了，这就是个Ioc容器
 
 ### 如何处理 @Controller 注解
 ``` php
@@ -70,8 +71,8 @@ public class Index {
     }
 }
 ```
-- 这里就不贴代码了，它依然是通过反射记录url到method的映射关系
-- 包括@Autowired注解也是同样道理，通过反射将依赖注入到field
+> 这里就不贴代码了，它依然是通过反射记录url到method的映射关系
+> 包括@Autowired注解也是同样道理，通过反射将依赖注入到field
 
 ### 通过代码简单模拟 Spring Boot
 - 首先请确保已自行安装好tomcat
@@ -125,12 +126,15 @@ public class MyDispatchServlet extends HttpServlet {
 </web-app>
 ```
 - 在<init-param>中配置了一个初始化加载Spring主配置文件路径，application.properties文件放在/WEB-INF/下，内容如下：
+
 ``` php
 scanPackage=com.mvc.demo
 ```
 
 ##### 3. 定义注解
+
 - @Controller注解
+
 ``` php
 package com.mvc.framework.annotation;
 
@@ -143,7 +147,9 @@ public @interface Autowired {
     String value() default "";
 }
 ```
+
 - @Autowired注解
+
 ``` php
 package com.mvc.framework.annotation;
 
@@ -156,7 +162,9 @@ public @interface Autowired {
     String value() default "";
 }
 ```
+
 - @RequestMapping
+
 ``` php
 package com.mvc.framework.annotation;
 
@@ -169,7 +177,9 @@ public @interface RequestMapping {
     String value() default "";
 }
 ```
+
 - @Service
+
 ``` php
 package com.mvc.framework.annotation;
 
@@ -185,6 +195,7 @@ public @interface Service {
 
 ##### 4. 使用注解
 - 创建控制器并使用@Controller,@Autowired,@RequestMapping注解
+
 ``` php
 package com.mvc.demo;
 
@@ -205,7 +216,9 @@ public class DemoController {
 }
 
 ```
+
 - 创建Service接口
+
 ``` php
 package com.mvc.demo;
 
@@ -214,7 +227,9 @@ public interface DemoService {
     public String echo();
 }
 ```
+
 - 实现Service接口并使用@service注解
+
 ``` php
 package com.mvc.demo;
 
@@ -231,6 +246,7 @@ public class DemoImpl implements DemoService {
 
 #### Step 3 初始化阶段
 ##### 1. 声明Ioc容器、url映射关系和其他配置相关信息
+
 ``` php
 public class MyDispatchServlet extends HttpServlet {
 
@@ -250,7 +266,9 @@ public class MyDispatchServlet extends HttpServlet {
     private Properties config = new Properties();
 }
 ```
+
 ##### 2. 重写init方法，实现拿到主配置文件的路径，读取配置文件中的信息，扫描所有相关的类，初始化相关类的实例并保存到IOC容器，从ICO容器取出对应的实例给字段赋值，即依赖注入，最后将url和Method进行关联。
+
 ``` php
 @Override
 public void init(ServletConfig config) throws ServletException {
@@ -294,7 +312,9 @@ private void loadConfig(String location) {
     }
 }
 ```
+
 - scanner扫描相关类并保存
+
 ``` php
 private void scanner(String packageName) {
     URL url = this.getClass().getClassLoader().getResource("/" + packageName.replaceAll("\\.", "/"));
@@ -310,6 +330,7 @@ private void scanner(String packageName) {
 ```
 
 - initIoc根据类名实例化，并放到IOC容器中,主要处理@Controller，@Service注解
+
 ``` php
 private void initIoc() {
     if (classes.size() == 0) return;
@@ -341,7 +362,9 @@ private void initIoc() {
     }
 }
 ```
+
 - initDi将初始化到IOC容器中的类,赋值依赖注入字段，处理@Autowired注解
+
 ``` php
 private void initDi() {
     if (ioc.isEmpty()) return;
@@ -364,7 +387,9 @@ private void initDi() {
     }
 }
 ```
+
 - initUrl将url和method进行映射，处理@RequestMapping注解
+
 ``` php
 private void initUrl() {
     if (ioc.isEmpty()) return;
@@ -386,10 +411,12 @@ private void initUrl() {
     }
 }
 ```
+
 > 至此，初始化阶段的代码都已完成。
 
 #### Step 4 运行阶段
 ##### 在doGet方法调用doPost方法，在doPost方法中再调用doDispach()方法。
+
 ``` php
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -405,7 +432,9 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
     }
 }
 ```
+
 ##### doDispatch处理所有请求，url请求不存在的返回404，通过url查找到对应的方法进行调用并返回。
+
 ``` php
 private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception {
     if (urls.isEmpty()) return;
