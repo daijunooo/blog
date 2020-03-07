@@ -141,6 +141,7 @@ id | user_id | label_id
 
 ### 增加商品与标签的关联表 goods_label_relation
 - goods_id，label_id字段加联合唯一索引（插入数据时代码需要做逻辑处理），不同用户的重复数据用count来计数
+
 id | goods_id | label_id | count
 ---|---|---|---
 1  | 1 | 1 | 1
