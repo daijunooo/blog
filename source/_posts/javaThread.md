@@ -12,6 +12,7 @@ tag: java
 
 ### java中如何实现多线程
 1. 重写Thread的run方法
+
 ``` php
 Thread thread1 = new Thread() {
     @Override
@@ -23,6 +24,7 @@ thread1.start();
 ```
 
 2. 实现Runnable接口的run方法
+
 ``` php
 Thread thread2 = new Thread(new Runnable() {
     @Override
@@ -37,9 +39,8 @@ Thread thread2 = new Thread(() -> {
     System.out.println("新线程2执行了");
 });
 thread2.start();
+
 ```
-
-
 
 ### 线程的状态
 1. new：初始状态 - 线程被new出来时处于此种状态
