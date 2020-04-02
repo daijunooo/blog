@@ -83,7 +83,7 @@ echo base64_decode($img);
 
 ### 欣赏一下phantomjs截的两张网页
 1. 百度图片
-![image](http://daijunooo-img.test.upcdn.net/blog/baiduimg.png)
+![image](https://s1.ax1x.com/2020/04/02/GYtJWn.png)
 
 2. composer
-![image](http://daijunooo-img.test.upcdn.net/blog/composerimg.png)
+![image](https://s1.ax1x.com/2020/04/02/GYU5RA.png)
