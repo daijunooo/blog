@@ -76,7 +76,6 @@ deploy:
   type: git
   repo:
     github: git@github.com:daijunooo/daijunooo.github.com.git
-    coding: git@git.coding.net:daijunooo/daijunooo.coding.me.git
 
 cutie:
   slogan: 知道的太多.. 小心掉头发哦 😂
