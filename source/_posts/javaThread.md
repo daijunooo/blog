@@ -48,7 +48,7 @@ thread2.start();
 3. Running：运行状态 - 处于就绪状态的线程获取到CPU时间片，正在执行。
 4. Blocked：阻塞状态 - 当线程要执行的必要条件无法满足时处于此种状态，如等待其他线程释放锁、等待IO等。当这些条件得到满足后线程变为就绪状态。
 5. Dead：死亡状态 - 当线程run方法执行完或者遇到异常退出时线程死亡，线程的生命周期就此终止。
-![image](http://daijunooo-img.test.upcdn.net/blog/thread.jpg)
+![image](https://s1.ax1x.com/2020/04/02/GYw2ZV.png)
 
 # 常用方法
 - join：当在一个线程A中调用另一个线程B的join方法时，线程A会等待线程B执行完再进行执行。

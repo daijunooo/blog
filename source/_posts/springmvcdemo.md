@@ -81,7 +81,7 @@ public class Index {
 #### Step 1 新建Java Web项目
 - New Project -> Java Enterprise -> 勾选Web Application
 ##### 项目结构如下
-![image](http://daijunooo-img.test.upcdn.net/blog/springmvcdemo.png)
+![image](https://s1.ax1x.com/2020/04/02/GYwOIO.png)
 
 #### Step 2 配置阶段
 ##### 1. 创建 MyDispatchServlet 类继承 HttpServlet，重写init()、doGet()和doPost()方法。
