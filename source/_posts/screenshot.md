@@ -10,7 +10,7 @@ tag: phantomJs
 
 ## 安装
 
-```
+``` php
 composer require tommy-dai/screenshot
 ```
 
