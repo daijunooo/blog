@@ -7,13 +7,13 @@ tag: linux
 
 # 修改 sftp 配置
 
-```
+``` php
 vim /etc/ssh/sshd_config
 ```
 
 - 新增 Subsystem       sftp    internal-sftp
 
-```
+``` php
 #Subsystem      sftp    /usr/libexec/openssh/sftp-server
 Subsystem       sftp    internal-sftp
 ```
@@ -21,7 +21,7 @@ Subsystem       sftp    internal-sftp
 - 在最后追加
 
 
-```
+``` php
 Match User www-data
      ChrootDirectory /www/site/dev/framework
      ForceCommand internal-sftp
@@ -33,7 +33,7 @@ Match User www-data
 
 # 重启服务
 
-```
+``` php
 service sshd restart
 ```
 
@@ -43,7 +43,7 @@ service sshd restart
 - 这样就可以自定义哪些目录可以指定给这个用户访问，可以实现自由组合
 - ChrootDirectory 配置到这个 /home/user 目录
 
-```
+``` php
 # 挂载目录
 mount --bind /www/data /home/user/data
 
