@@ -1,6 +1,16 @@
-# theme-cutie-demo
-A demo site for hexo theme cutie
+# 快速使用
 
-## Changelog
+``` php
+安装依赖：
+docker run --rm -it --init -v "$(pwd):/www" node:7.2.0-alpine sh -c "cd /www && npm install"
 
-1. Fix a bug that only pushed the symlink of theme folder. Now the actual theme files are uploaded.
+启动服务：
+docker run --rm -it --init -v "$(pwd):/www" -p 4000:4000 node:7.2.0-alpine sh -c "cd /www && ./node_modules/.bin/hexo serve"
+
+清空缓存：
+docker run --rm -it --init -v "$(pwd):/www" node:7.2.0-alpine sh -c "cd /www && ./node_modules/.bin/hexo clean"
+
+生成文章：
+docker run --rm -it --init -v "$(pwd):/www" node:7.2.0-alpine sh -c "cd /www && ./node_modules/.bin/hexo generate"
+
+```
