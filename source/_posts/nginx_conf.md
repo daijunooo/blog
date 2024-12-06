@@ -176,3 +176,38 @@ server {
 #### 「^~」修饰符
 - 前缀匹配 如果该 location 是最佳的匹配，那么对于匹配这个 location 的字符串， 该修饰符不再进行正则表达式检测。
 - 注意，这不是一个正则表达式匹配，它的目的是优先于正则表达式的匹配
+
+### 前后端分离项目使用同一个域名的nginx配置
+
+``` php
+server {
+    listen 80;
+    server_name www.web.com;
+    root /www/framework/public;
+
+    # 匹配所有请求
+    location / {
+
+        # 访问前端
+        root /www/web/dist;
+        index index.html index.htm;
+        
+        # 如果访问不到则继续匹配后端
+        try_files $uri $uri/ @fallback;
+    }
+    
+    location @fallback {
+
+        # 后端项目入口
+        root /www/framework/public;
+
+        # 匹配后端文件
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        include fastcgi.conf;
+        fastcgi_pass php:9000;
+    }
+}
+```
