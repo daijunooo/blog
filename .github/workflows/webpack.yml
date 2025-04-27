@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to daijunoo pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.TOKEN }}
+        github_token: ${{ secrets.DEPLOY_TOKEN }}
         publish_dir: ./public
         external_repository: daijunooo/daijunooo.github.io  # 目标仓库
         publish_branch: master  # GitHub Pages 默认分支
