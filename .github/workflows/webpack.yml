@@ -33,4 +33,12 @@ jobs:
     - name: Build
       run: |
         npm install --no-audit --no-fund || true
-        ./node_modules/.bin/hexo deploy
+        ./node_modules/.bin/hexo generate
+
+    - name: Deploy to Another Repo
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        external_repository: daijunooo/daijunooo.github.io  # 目标仓库
+        publish_branch: master  # GitHub Pages 默认分支
