@@ -25,7 +25,7 @@ jobs:
     - name: Build
       run: |
         npm install --no-audit --no-fund || true
-        ./node_modules/.bin/hexo generate && cd ./public && ls -la
+        ./node_modules/.bin/hexo generate
 
     - name: Deploy to daijunoo pages
       uses: peaceiris/actions-gh-pages@v3
