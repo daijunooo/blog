@@ -22,7 +22,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Git
+      run: sudo apt-get install -y git  # 确保 Git 可用
+
     - name: Build
       run: |
         npm install --no-audit --no-fund || true
-        hexo deploy
+        ./node_modules/.bin/hexo deploy
