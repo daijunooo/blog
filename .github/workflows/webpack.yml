@@ -28,9 +28,9 @@ jobs:
         ./node_modules/.bin/hexo generate
 
     - name: Deploy to daijunoo pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        github_token: ${{ secrets.DEPLOY_TOKEN }}
-        publish_dir: ./public
-        external_repository: daijunooo/daijunooo.github.io  # 目标仓库
-        publish_branch: master  # GitHub Pages 默认分支
+        token: ${{ secrets.DEPLOY_TOKEN }}  # 使用相同的 PAT
+        repository-name: daijunooo/daijunooo.github.io
+        branch: master
+        folder: public
