@@ -14,14 +14,19 @@ tag: 最佳实践
 ``` php
 #!/bin/bash
 
-base_dir=$(pwd)
+path=$(pwd);
+basename=$(basename "$path");
 
 # 当前迭代的分支名称
-branch="feature_v4.6.1"; #售后迁移
-#branch="feature_v5.4.2"; #百信银行
+#branch="feature_v4.6.1"; #售后迁移
+branch="feature_v5.4.2"; #百信银行
 
+# 获取当前默认分支
+function master() {
+  git symbolic-ref refs/remotes/origin/HEAD | sed 's@.*/@@';
+}
 
-if [[ $base_dir =~ billbear-third-api && $branch =~ feature_v4.2.2 ]]; then
+if [[ $path =~ billbear-third-api && $branch =~ feature_v4.2.2 ]]; then
   branch="feature_v4.2.2_lz";
 fi
 
@@ -36,23 +41,23 @@ fi
 
 # 自动创建迭代分账
 if [ "test" = $1 ]; then
-#  git stash && git checkout master && git pull --rebase && git checkout -b ${branch} && git stash pop;
-#  git checkout master && git pull --rebase && git checkout -b ${branch};
-#  git checkout main && git pull --rebase;
+#  git stash && git checkout $(master) && git pull --rebase && git checkout -b ${branch} && git stash pop;
+#  git checkout $(master) && git pull --rebase && git checkout -b ${branch};
+#  git checkout $(master) && git pull --rebase;
 #  git checkout ${branch} && git pull --rebase;
-#  git branch -a;
-  git checkout master && git pull --rebase > /dev/null && git log master..${branch}; # 检查发版
+  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..${branch}; # 检查发版
 fi
 
 # 批量操作
 if [ "batch" = $1 ]; then
   for dir in */; do
-    cd "$base_dir/$dir" || exit;
-#    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
-#    rm -rf *.iml && git pull --rebase;
-#    git checkout master && git pull --rebase;
+    cd "$path/$dir" || exit;
+    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
+    rm -rf *.iml && git pull --rebase;
+    git checkout $(master) && git pull --rebase;
 #    git checkout ${branch} && git pull --rebase;
-#    git checkout master && git pull --rebase && git checkout ${branch};
+#    git checkout $(master) && git pull --rebase && git checkout ${branch};
+#  merge_request;
   done
 fi
 
