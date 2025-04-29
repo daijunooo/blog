@@ -19,44 +19,49 @@ basename=$(basename "$path");
 
 # 当前迭代的分支名称
 #branch="feature_v4.6.1"; #售后迁移
-branch="feature_v5.4.2"; #百信银行
+#branch="feature_v5.4.2"; #百信银行
+branch="feature_v4.2.2"; #齐商银行
 
 # 获取当前默认分支
 function master() {
   git symbolic-ref refs/remotes/origin/HEAD | sed 's@.*/@@';
 }
 
-if [[ $path =~ billbear-third-api && $branch =~ feature_v4.2.2 ]]; then
-  branch="feature_v4.2.2_lz";
-fi
+function get_branch() {
+  if [[ $(pwd) =~ billbear-third-api && $branch =~ feature_v4.2.2 ]]; then
+    echo "feature_v4.2.2_lz";
+    return;
+  fi
+  echo "$branch";
+}
 
 # 自动合并迭代分支并push
 if [ "push" = $1 ]; then
-#  git checkout ${branch} && git pull;
-  git checkout dev && git pull --rebase && git merge ${branch} --message "merge ${branch} into dev" && git push;
-  git checkout test && git pull --rebase && git merge ${branch} --message "merge ${branch} into test" && git push;
-#  git checkout prev && git pull --rebase && git merge ${branch} --message "merge ${branch} into prev" && git push;
-  git checkout ${branch};
+#  git checkout $(get_branch) && git pull;
+  git checkout dev && git pull --rebase && git merge $(get_branch) --message "merge $(get_branch) into dev" && git push;
+  git checkout test && git pull --rebase && git merge $(get_branch) --message "merge $(get_branch) into test" && git push;
+#  git checkout prev && git pull --rebase && git merge $(get_branch) --message "merge $(get_branch) into prev" && git push;
+  git checkout $(get_branch);
 fi
 
 # 自动创建迭代分账
 if [ "test" = $1 ]; then
-#  git stash && git checkout $(master) && git pull --rebase && git checkout -b ${branch} && git stash pop;
-#  git checkout $(master) && git pull --rebase && git checkout -b ${branch};
+#  git stash && git checkout $(master) && git pull --rebase && git checkout -b $(get_branch) && git stash pop;
+#  git checkout $(master) && git pull --rebase && git checkout -b $(get_branch);
 #  git checkout $(master) && git pull --rebase;
-#  git checkout ${branch} && git pull --rebase;
-  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..${branch}; # 检查发版
+  git checkout $(get_branch) && git pull --rebase;
+#  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..$(get_branch); # 检查发版
 fi
 
 # 批量操作
 if [ "batch" = $1 ]; then
   for dir in */; do
     cd "$path/$dir" || exit;
-    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
-    rm -rf *.iml && git pull --rebase;
-    git checkout $(master) && git pull --rebase;
-#    git checkout ${branch} && git pull --rebase;
-#    git checkout $(master) && git pull --rebase && git checkout ${branch};
+#    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
+#    rm -rf *.iml && git pull --rebase;
+#    git checkout $(master) && git pull --rebase;
+    git checkout $(get_branch) && git pull --rebase;
+#    git checkout $(master) && git pull --rebase && git checkout $(get_branch);
 #  merge_request;
   done
 fi
