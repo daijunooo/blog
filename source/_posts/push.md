@@ -19,20 +19,15 @@ basename=$(basename "$path");
 
 # 当前迭代的分支名称
 #dev="feature_v4.6.1"; #售后迁移
-dev="feature_v5.4.2"; #百信银行
-#dev="feature_v4.2.2"; #齐商银行
+#dev="feature_v5.4.2"; #百信银行
+dev="feature_v4.2.2"; #齐商银行
 
 # 获取当前默认分支
 function master() {
   git symbolic-ref refs/remotes/origin/HEAD | sed 's@.*/@@';
 }
-
 function branch() {
-  if [[ $(pwd) =~ billbear-third-api && $dev =~ feature_v4.2.2 ]]; then
-    echo "feature_v4.2.2_lz";
-    return;
-  fi
-  echo "$dev";
+  [[ $(pwd) =~ billbear-third-api && $dev =~ feature_v4.2.2 ]] && echo "feature_v4.2.2_lz" || echo "$dev"
 }
 
 # 自动合并迭代分支并push
@@ -60,12 +55,11 @@ if [ "batch" = $1 ]; then
 #    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
 #    rm -rf *.iml && git pull --rebase;
 #    git checkout $(master) && git pull --rebase;
-#    git checkout $(branch) && git pull --rebase; # 切换代码到当前开发分支
-#    git checkout $(master) && git pull --rebase && git checkout $(branch);
+#    git checkout $(branch) && git pull --rebase;
+# 输出本期迭代所有改动，并比较与主分支的差异提交个数
+    git checkout $(branch) &> /dev/null && echo $(basename "$dir") && git rev-list --count $(master)..$(branch);
   done
 fi
-
-
 ```
 
 # 使用方法
