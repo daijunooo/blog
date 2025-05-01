@@ -10,6 +10,7 @@ tag: 最佳实践
 
 [![pETD3HU.png](https://s21.ax1x.com/2025/04/27/pETD3HU.png)](https://imgse.com/i/pETD3HU)
 
+[![pEHIo3q.png](https://s21.ax1x.com/2025/05/01/pEHIo3q.png)](https://imgse.com/i/pEHIo3q)
 
 ``` php
 #!/bin/bash
