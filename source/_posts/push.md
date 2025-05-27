@@ -19,8 +19,7 @@ path=$(pwd);
 basename=$(basename "$path");
 
 # 当前迭代的分支名称
-dev="feature_v4.6.1"; #售后迁移
-#dev="feature_v5.4.4"; #统统付
+dev="feature_v5.4.4"; #统统付
 #dev="feature_v4.5.1"; #古茗
 
 # 获取当前默认分支
@@ -44,8 +43,8 @@ if [ "test" = $1 ]; then
 #  git stash && git checkout $(master) && git pull --rebase && git checkout -b $(branch) && git stash pop;
 #  git checkout $(master) && git pull --rebase && git checkout -b $(branch);
 #  git checkout $(master) && git pull --rebase;
-  git checkout $(branch) && git pull --rebase;
-#  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..$(branch); # 检查发版
+#  git checkout $(branch) && git pull --rebase;
+  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..$(branch); # 检查发版
 fi
 
 # 批量操作
@@ -54,14 +53,14 @@ if [ "batch" = $1 ]; then
     cd "$path/$dir" || exit;
 #    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
 #    find ./ -type f -name "*.iml" -delete;
-#    git checkout $(master) && git pull --rebase;
-#    git checkout $(branch) && git pull --rebase;
-#    git pull --rebase origin $(master) $(branch) &> /dev/null;
+    git checkout $(master) &> /dev/null && git pull --rebase &> /dev/null;
 
 # 输出本期迭代所有改动，并比较与主分支的差异提交个数
-#     git checkout $(branch) &> /dev/null && echo $(basename "$dir") && git rev-list --count $(master)..$(branch);
+     git checkout $(branch) &> /dev/null && echo $(basename "$dir") && git rev-list --count $(master)..$(branch);
   done
 fi
+
+
 ```
 
 # 使用方法
