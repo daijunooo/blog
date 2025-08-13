@@ -19,8 +19,7 @@ path=$(pwd);
 basename=$(basename "$path");
 
 # 当前迭代的分支名称
-dev="feature_v5.4.4"; #统统付
-#dev="feature_v4.5.1"; #古茗
+dev="feature_v5.7.9"; # 维信权益
 
 # 获取当前默认分支
 function master() {
@@ -30,7 +29,7 @@ function branch() {
   [[ $(pwd) =~ billbear-third-api && $dev =~ feature_v4.5.1 ]] && echo "feature_v4.5.1_lz" || echo "$dev"
 }
 
-# 自动合并迭代分支并push
+# push
 if [ "push" = $1 ]; then
 #  git checkout $(branch) && git pull;
   git checkout dev && git pull --rebase && git merge $(branch) --message "merge $(branch) into dev" && git push;
@@ -38,27 +37,62 @@ if [ "push" = $1 ]; then
   git checkout $(branch);
 fi
 
-# 自动创建迭代分账
-if [ "test" = $1 ]; then
+# 快捷操作
+if [ "biubiu" = $1 ]; then
 #  git stash && git checkout $(master) && git pull --rebase && git checkout -b $(branch) && git stash pop;
-#  git checkout $(master) && git pull --rebase && git checkout -b $(branch);
-#  git checkout $(master) && git pull --rebase;
-#  git checkout $(branch) && git pull --rebase;
-  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..$(branch); # 检查发版
+  git checkout $(master) && git pull --rebase && git checkout -b $(branch);
+#  git checkout $(master) && git pull --rebase > /dev/null && git log $(master)..$(branch); # 检查发版
 fi
 
-# 批量操作
+# 切分支
+if [ "dev" = $1 ]; then
+  git checkout dev && git pull --rebase;
+fi
+if [ "test" = $1 ]; then
+  git checkout test && git pull --rebase;
+fi
+if [ "master" = $1 ]; then
+  git checkout $(master) && git pull --rebase;
+fi
+if [ "feature" = $1 ]; then
+  git checkout $(branch) && git pull --rebase;
+fi
+
+# 批量
 if [ "batch" = $1 ]; then
   for dir in */; do
     cd "$path/$dir" || exit;
 #    /Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn clean
 #    find ./ -type f -name "*.iml" -delete;
-    git checkout $(master) &> /dev/null && git pull --rebase &> /dev/null;
+#    git checkout $(master) &> /dev/null && git pull --rebase &> /dev/null;
 
 # 输出本期迭代所有改动，并比较与主分支的差异提交个数
      git checkout $(branch) &> /dev/null && echo $(basename "$dir") && git rev-list --count $(master)..$(branch);
+#     git checkout $(branch) &> /dev/null;
   done
 fi
+
+# deploy
+if [ "deploy" = $1 ]; then
+cd /Users/daijun/IdeaProjects/vip/billbear-third-api/billbear-weixin-api
+
+
+cd /Users/daijun/IdeaProjects/vip/billbear-interests/billbear-interests-facade-stub
+
+
+cd /Users/daijun/IdeaProjects/vip/billbear-paycenter/billbear-paycenter-facade-stub
+
+
+cd /Users/daijun/IdeaProjects/vip/billbear-common/common-spring-boot-starter
+
+
+cd /Users/daijun/IdeaProjects/vip/billbear-message-notify/billbear-message-notify-facade-stub
+
+
+cd /Users/daijun/IdeaProjects/vip/billbear-after-sales/billbear-after-sales-facade
+
+fi
+
 
 
 ```
