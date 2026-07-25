@@ -20,3 +20,8 @@ tag: house
 - 冰箱不会用双开门，大概率是单开门容量大一点的
 - 次卧的双开门效果图上没有画需要补上
 - 最后家里有一些需要带过去的家具
+
+[![pm25p28.md.png](https://s41.ax1x.com/2026/07/25/pm25p28.md.png)](https://imgchr.com/i/pm25p28)
+[![pm25S8f.md.png](https://s41.ax1x.com/2026/07/25/pm25S8f.md.png)](https://imgchr.com/i/pm25S8f)
+[![pm24zPP.md.jpg](https://s41.ax1x.com/2026/07/25/pm24zPP.md.jpg)](https://imgchr.com/i/pm24zPP)
+[![pm259xS.md.png](https://s41.ax1x.com/2026/07/25/pm259xS.md.png)](https://imgchr.com/i/pm259xS)
