@@ -6,13 +6,20 @@ tag: house
 ---
 
 # 2026-7-28 效果图沟通
-- 入户门鞋柜使用第一版
+- 参考图和说明图片
+
+[![pmWvYWD.md.jpg](https://s41.ax1x.com/2026/07/28/pmWvYWD.md.jpg)](https://imgchr.com/i/pmWvYWD)
+[![pmWvNSe.md.png](https://s41.ax1x.com/2026/07/28/pmWvNSe.md.png)](https://imgchr.com/i/pmWvNSe)
+[![pmWvUQH.md.png](https://s41.ax1x.com/2026/07/28/pmWvUQH.md.png)](https://imgchr.com/i/pmWvUQH)
+[![pmWvayd.md.png](https://s41.ax1x.com/2026/07/28/pmWvayd.md.png)](https://imgchr.com/i/pmWvayd)
+
 - 客厅靠近入户门的通顶柜子改为矮柜和洞洞板，以后可以放吉他羽毛球拍
 - 厨房地面贴砖
 - 淋浴间和马桶间门口贴砖
 - 书房和走廊的移门改为平开门
-- 洗手台需要双人位，水龙头需要两个，面盆可以用一个大单盆
-- 洗手台上方的透光窗户尽量保留，实在吊顶不好处理才能放弃
+- 洗手台需要双人位，水龙头需要两个，面盆可以用一个大陶瓷单盆
+- 洗手台上方的透光窗户保留
+- 卧室门需要开透光孔安装玻璃
 
 # 2026-7-25 效果图沟通
 
