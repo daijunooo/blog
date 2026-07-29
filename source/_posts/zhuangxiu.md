@@ -6,8 +6,7 @@ tag: house
 ---
 
 # 2026-7-29 效果图沟通
-- 厨房地面贴砖，淋浴间和马桶间门口贴砖
-![image](https://s41.ax1x.com/2026/07/29/pmfZrW9.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfenp9.png)
 ![image](https://s41.ax1x.com/2026/07/29/pmfZDJJ.png)
 ![image](https://s41.ax1x.com/2026/07/29/pmfZBi4.png)
 ![image](https://s41.ax1x.com/2026/07/29/pmfZwoF.png)
