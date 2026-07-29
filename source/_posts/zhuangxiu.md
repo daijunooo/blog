@@ -6,6 +6,7 @@ tag: house
 ---
 
 # 2026-7-29 效果图沟通
+![image](https://s41.ax1x.com/2026/07/28/pmWvYWD.jpg)
 ![image](https://s41.ax1x.com/2026/07/29/pmfenp9.png)
 ![image](https://s41.ax1x.com/2026/07/29/pmfZDJJ.png)
 ![image](https://s41.ax1x.com/2026/07/29/pmfZBi4.png)
