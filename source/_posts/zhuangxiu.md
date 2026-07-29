@@ -5,21 +5,15 @@ categories: fun
 tag: house
 ---
 
-# 2026-7-28 效果图沟通
-- 参考图和说明图片
-
-![image](https://s41.ax1x.com/2026/07/28/pmWvayd.png)
-![image](https://s41.ax1x.com/2026/07/28/pmWvUQH.png)
-![image](https://s41.ax1x.com/2026/07/28/pmWvNSe.png)
-![image](https://s41.ax1x.com/2026/07/28/pmWvYWD.jpg)
-
-- 客厅靠近入户门的通顶柜子改为矮柜和洞洞板，以后可以放吉他羽毛球拍
-- 厨房地面贴砖
-- 淋浴间和马桶间门口贴砖
-- 书房和走廊的移门改为平开门
-- 洗手台需要双人位，水龙头需要两个，面盆可以用一个大陶瓷单盆
-- 洗手台上方的透光窗户保留
-- 卧室门需要开透光孔安装玻璃
+# 2026-7-29 效果图沟通
+- 厨房地面贴砖，淋浴间和马桶间门口贴砖
+![image](https://s41.ax1x.com/2026/07/29/pmfZrW9.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZDJJ.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZBi4.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZwoF.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZddU.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZszR.png)
+![image](https://s41.ax1x.com/2026/07/29/pmfZ6Q1.png)
 
 # 2026-7-25 效果图沟通
 
