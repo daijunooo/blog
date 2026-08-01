@@ -5,6 +5,10 @@ categories: fun
 tag: house
 ---
 
+# 2026-8-1 效果图沟通
+![image](https://s41.ax1x.com/2026/08/01/pm4WkQK.jpg)
+![image](https://s41.ax1x.com/2026/08/01/pm4Wiz6.jpg)
+
 # 2026-7-29 效果图沟通
 ![image](https://s41.ax1x.com/2026/07/28/pmWvYWD.jpg)
 ![image](https://s41.ax1x.com/2026/07/29/pmfenp9.png)
