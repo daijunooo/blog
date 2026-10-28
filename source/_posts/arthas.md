@@ -19,6 +19,12 @@ retransform demo.class
 # step 4 根据上一步命令结果，如果替换成功，测试bug是否修复。如果替换错了可以倒退
 retransform --deleteAll
 
+# 查询类
+sc *NotifyController
+
+# 反编译类或方法
+jad --source-only com.billbear.paycenter.controller.NotifyController
+jad --source-only com.billbear.paycenter.controller.NotifyController xsPayNotify
 ```
 
 https://arthas.aliyun.com/doc/
